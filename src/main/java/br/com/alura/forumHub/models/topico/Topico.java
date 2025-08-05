@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "Topico")
 @Table(name = "topicos")
@@ -24,15 +25,15 @@ public class Topico {
     private LocalDate dataCriacao;
     private String autor;
     private String curso;
-    private Estado estado;
-    private Boolean ativo;
+    private Boolean status;
 
     public Topico(DadosCadastroTopico dados) {
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
+        this.dataCriacao = LocalDate.now();
         this.autor = dados.autor();
         this.curso = dados.curso();
-        this.ativo = true;
+        this.status = true;
     }
 
     public Long getId() {
@@ -83,12 +84,12 @@ public class Topico {
         this.curso = curso;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public void atualizarInformacoes(@Valid DadosAtualizacaoTopico dados) {
@@ -107,6 +108,6 @@ public class Topico {
     }
 
     public void excluir() {
-        this.ativo = false;
+        this.status = false;
     }
 }
