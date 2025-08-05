@@ -1,4 +1,4 @@
-package br.com.alura.forumHub.models;
+package br.com.alura.forumHub.models.topico;
 
 public record DadosListagemTopico(Long id, String titulo, String mensagem, String autor, String curso) {
     public DadosListagemTopico(Topico topico) {

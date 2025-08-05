@@ -1,7 +1,8 @@
 package br.com.alura.forumHub.Controller;
 
-import br.com.alura.forumHub.models.*;
+import br.com.alura.forumHub.models.topico.*;
 import br.com.alura.forumHub.repository.TopicoRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/topicos")
-//@SecurityRequirement(name = "bearer-key")
+@SecurityRequirement(name = "bearer-key")
 public class TopicoController {
 
     @Autowired
